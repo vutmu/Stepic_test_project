@@ -7,3 +7,20 @@ class ProductPage(BasePage):
     def add_product_to_basket(self):
         basket_button=self.browser.find_element(*ProductPageLocators.BASKET_BUTTON)
         basket_button.click()
+
+    def check_product_name(self):
+        assert self.is_element_present(*ProductPageLocators.PRODUCT_NAME), "product name not found"
+        assert self.is_element_present(*ProductPageLocators.BASKET_CONFIRM), "name in basket not found"
+        product_name= self.browser.find_element(*ProductPageLocators.PRODUCT_NAME).text
+        product_confirm = self.browser.find_element(*ProductPageLocators.BASKET_CONFIRM).text
+        assert product_name in product_confirm, "product name in basket not found"
+
+    def check_product_price(self):
+        assert self.is_element_present(*ProductPageLocators.PRODUCT_PRICE), "product price not found"
+        assert self.is_element_present(*ProductPageLocators.BASKET_PRICE), "price in not found"
+        product_price= self.browser.find_element(*ProductPageLocators.PRODUCT_PRICE).text
+        basket_price= self.browser.find_element(*ProductPageLocators.BASKET_PRICE).text
+        assert product_price in basket_price, "product price in basket not found"
+
+
+

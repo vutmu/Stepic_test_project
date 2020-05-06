@@ -19,6 +19,16 @@ class BasePage():
             return False
         return True
 
+    # def is_text_in_element(self,how, where, place_how, place_where):
+    #     try:
+    #         element=self.browser.find_element(place_how,place_where).text
+    #         assert element in self.browser.find_element(how,where).text , "no such text in element"
+    #     except(NoSuchElementException):
+    #         return False
+    #     return True
+
+
+
     def solve_quiz_and_get_code(self):
         alert = self.browser.switch_to.alert
         x = alert.text.split(" ")[2]
