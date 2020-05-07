@@ -13,14 +13,14 @@ class ProductPage(BasePage):
         assert self.is_element_present(*ProductPageLocators.BASKET_CONFIRM), "name in basket not found"
         product_name= self.browser.find_element(*ProductPageLocators.PRODUCT_NAME).text
         product_confirm = self.browser.find_element(*ProductPageLocators.BASKET_CONFIRM).text
-        assert product_name in product_confirm, "product name in basket not found"
+        assert product_name == product_confirm, "product name in basket not match"
 
     def check_product_price(self):
         assert self.is_element_present(*ProductPageLocators.PRODUCT_PRICE), "product price not found"
         assert self.is_element_present(*ProductPageLocators.BASKET_PRICE), "price in not found"
         product_price= self.browser.find_element(*ProductPageLocators.PRODUCT_PRICE).text
         basket_price= self.browser.find_element(*ProductPageLocators.BASKET_PRICE).text
-        assert product_price in basket_price, "product price in basket not found"
+        assert product_price == basket_price, "product price in basket not match"
 
 
 
