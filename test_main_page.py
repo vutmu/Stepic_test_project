@@ -26,4 +26,5 @@ def test_guest_cant_see_product_in_basket_opened_from_main_page(browser):
     page.go_to_basket()
     basket_page= BasketPage(browser,browser.current_url)
     basket_page.basket_should_be_empty()
+    basket_page.should_be_message_about_empty_basket()
 

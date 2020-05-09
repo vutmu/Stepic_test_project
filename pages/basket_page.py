@@ -5,5 +5,9 @@ from selenium.webdriver.common.by import By
 
 class BasketPage(BasePage):
     def basket_should_be_empty(self):
-        count = len(self.browser.find_elements(*BasketPageLocators.SHOPPING_LIST))
-        assert count == 1, "basket is not empty!"
+        assert self.is_not_element_present(*BasketPageLocators.BASKET_ITEMS), "basket is not empty!"
+
+    def should_be_message_about_empty_basket(self):
+        assert self.is_element_present(*BasketPageLocators.EMPTY_MESSAGE), "message 'your basket is empty' is missing!"
+
+

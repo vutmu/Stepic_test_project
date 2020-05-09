@@ -22,4 +22,5 @@ class CommonLocators():
     BASKET_LINK =(By.CSS_SELECTOR,".btn-group a.btn.btn-default")
 
 class BasketPageLocators():
-    SHOPPING_LIST=(By.CSS_SELECTOR,"#content_inner p")
+    BASKET_ITEMS = (By.CSS_SELECTOR,".basket-items")
+    EMPTY_MESSAGE =(By.CSS_SELECTOR,"#content_inner>p")
